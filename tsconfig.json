@@ -1,7 +1,10 @@
 {
   "compilerOptions": {
     "strict": true,
-    "target": "ES5"
+    "target": "ES5",
+    "paths": {
+      "@api/*": ["./src/api/*"]
+    }
   },
   "extends": "@tsconfig/svelte/tsconfig.json",
 
