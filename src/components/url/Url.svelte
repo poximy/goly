@@ -10,7 +10,7 @@
 
 <UrlForm miniUrl={(url) => (miniUrl = url)} />
 {#if miniUrl}
-  <p>{miniUrl}</p>
+  <a href={miniUrl}>{miniUrl}</a>
   <button on:click={copy}>COPY</button>
 {/if}
 
