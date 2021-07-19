@@ -1,11 +1,10 @@
 <script lang="ts">
   import Url from "./components/url/Url.svelte";
+  import Nav from "./components/nav/Nav.svelte";
 </script>
 
+<Nav />
 <main>
-  <header>
-    <h1>Minify URL</h1>
-  </header>
   <Url />
 </main>
 
