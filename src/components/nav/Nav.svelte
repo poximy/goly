@@ -1,4 +1,6 @@
 <script lang="ts">
+  export let urls: () => void;
+  export let backBtn: boolean
 </script>
 
 <nav>
@@ -8,9 +10,15 @@
         <h1>Minify URL</h1>
       </header>
     </li>
-    <li>
-      <button>My Urls</button>
-    </li>
+    {#if backBtn}
+      <li>
+        <button on:click={urls}>Back</button>
+      </li>
+    {:else}
+      <li>
+        <button on:click={urls}>My Urls</button>
+      </li>
+    {/if}
   </ul>
 </nav>
 
