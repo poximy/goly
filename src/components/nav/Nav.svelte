@@ -1,6 +1,6 @@
 <script lang="ts">
   export let urls: () => void;
-  export let backBtn: boolean
+  export let backBtn: boolean;
 </script>
 
 <nav>
@@ -51,8 +51,7 @@
   button {
     font-size: 1.75em;
     border: none;
-    padding: 0.25em;
-    background-color: #248f8f;
+    padding: 0.25em 0.5em;
     border-radius: 0.5em;
   }
 </style>
