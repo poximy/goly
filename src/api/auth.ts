@@ -1,5 +1,6 @@
 interface Token {
-  access_token: string;
+  access_token?: string;
+  detail?: string;
 }
 
 const token = async (username: string, password: string) => {
