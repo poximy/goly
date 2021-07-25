@@ -1,15 +1,52 @@
 <script lang="ts">
+  export let tokenHandler: (token: string) => void;
+  import token from "@api/auth";
+
+  let user: string = "";
+  let password: string = "";
+  let loginError = false;
+
+  let jwtToken = "";
+
+  const fromHandler = async () => {
+    const res = await token(user, password);
+    if (res !== null && res.access_token) {
+      jwtToken = res.access_token;
+
+      user = "";
+      password = "";
+      loginError = false;
+
+      tokenHandler(jwtToken);
+    } else {
+      loginError = true;
+      password = ""
+    }
+  };
 </script>
 
 <div class="auth">
-  <form on:submit|preventDefault={() => console.log("btn")}>
+  <form on:submit|preventDefault={fromHandler}>
     <div class="field">
-      <input type="text" class="input" placeholder="@user" />
+      <input
+        type="text"
+        class="input"
+        placeholder="@username"
+        bind:value={user}
+      />
     </div>
     <div class="field">
-      <input type="password" class="input" placeholder="Password" />
+      <input
+        type="password"
+        class="input"
+        placeholder="Password"
+        bind:value={password}
+      />
     </div>
     <button type="submit">LOGIN</button>
+    {#if loginError}
+      <p>Incorect user name or password</p>
+    {/if}
   </form>
 </div>
 
@@ -79,5 +116,12 @@
     font-size: 1em;
     padding: 0.5em;
     border-radius: 0.5em;
+  }
+
+  p {
+    text-transform: uppercase;
+    font-family: "Raleway", sans-serif;
+    font-size: 1em;
+    color: red;
   }
 </style>
