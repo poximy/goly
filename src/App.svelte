@@ -11,7 +11,7 @@
   const pageHandler = () => {
     if (backBtn) {
       page = "url";
-      backBtn = false
+      backBtn = false;
     } else if (jwtToken === "") {
       page = "auth";
       backBtn = true;
