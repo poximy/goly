@@ -1,9 +1,3 @@
-interface Metadata {
-  _id: string;
-  created: string;
-  clicks: number;
-}
-
 const data = async (token: string) => {
   const apiUrl = window.location.origin + "/user/metadata";
 
