@@ -20,7 +20,7 @@
       tokenHandler(jwtToken);
     } else {
       loginError = true;
-      password = ""
+      password = "";
     }
   };
 </script>
@@ -45,7 +45,7 @@
     </div>
     <button type="submit">LOGIN</button>
     {#if loginError}
-      <p>Incorect user name or password</p>
+      <p>Incorrect username or password</p>
     {/if}
   </form>
 </div>
@@ -98,7 +98,7 @@
     width: 100%;
     background: #248f8f;
     transform: scaleX(0);
-    transform-origin: 0%;
+    transform-origin: 0;
     transition: transform 500ms ease;
     top: 0.25em;
   }
