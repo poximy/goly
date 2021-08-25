@@ -21,9 +21,6 @@
     }
   };
 
-  const tokenHandler = (token: string) => {
-    jwtToken = token;
-  };
 </script>
 
 <Nav urls={pageHandler} {backBtn} />
@@ -31,7 +28,7 @@
   {#if page === "url"}
     <Url />
   {:else if jwtToken === ""}
-    <Auth {tokenHandler} />
+    <Auth bind:jwtToken />
   {:else}
     <p>metadata</p>
   {/if}

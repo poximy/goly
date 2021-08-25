@@ -1,12 +1,11 @@
 <script lang="ts">
-  export let tokenHandler: (token: string) => void;
+  export let jwtToken: string
   import token from "@api/auth";
 
   let user: string = "";
   let password: string = "";
   let loginError = false;
 
-  let jwtToken = "";
 
   const fromHandler = async () => {
     const res = await token(user, password);
@@ -16,8 +15,6 @@
       user = "";
       password = "";
       loginError = false;
-
-      tokenHandler(jwtToken);
     } else {
       loginError = true;
       password = "";
