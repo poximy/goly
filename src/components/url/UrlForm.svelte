@@ -1,7 +1,7 @@
 <script lang="ts">
   export let miniUrl: (url: string) => void;
 
-  import minifyUrl from "@api/url";
+  import { minifyUrl } from "@api/url";
 
   let urlInputText = "";
 
