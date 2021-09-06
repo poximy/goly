@@ -1,13 +1,25 @@
 <script lang="ts">
   export let jwtToken: string
-  import token from "@api/auth";
+  import { token, register } from "@api/auth";
 
+  // authentication variables
   let user: string = "";
   let password: string = "";
   let loginError = false;
 
+  // registration variables
+  let login = true;
+  let confirmPassword = "";
 
   const fromHandler = async () => {
+    if (!login && (password === confirmPassword)) {
+       const res = await register(user, password)
+       if (res === null || res === false){
+         loginError = true
+         return
+       }
+    }
+
     const res = await token(user, password);
     if (res !== null && res.access_token) {
       jwtToken = res.access_token;
@@ -20,7 +32,13 @@
       password = "";
     }
   };
+
 </script>
+
+<div class="action">
+  <button class="register" on:click={() => login = false}>Register</button>
+  <button class="login" on:click={() => login = true}>Login</button>
+</div>
 
 <div class="auth">
   <form on:submit|preventDefault={fromHandler}>
@@ -40,6 +58,16 @@
         bind:value={password}
       />
     </div>
+    {#if !login}
+      <div class="field">
+        <input
+                type="password"
+                class="input"
+                placeholder="Confirm Password"
+                bind:value={confirmPassword}
+        />
+      </div>
+    {/if}
     <button type="submit">LOGIN</button>
     {#if loginError}
       <p>Incorrect username or password</p>
@@ -48,6 +76,25 @@
 </div>
 
 <style>
+  .action {
+    display: flex;
+    justify-content: center;
+  }
+
+  .action button {
+    font-size: 1.25em;
+    margin: 0;
+  }
+
+  .register {
+    border-radius: 0.5em 0 0 0.5em;
+  }
+
+  .login {
+    border-left: 1px solid black;
+    border-radius: 0 0.5em 0.5em 0;
+  }
+
   .auth {
     display: flex;
     justify-content: center;
