@@ -3,6 +3,7 @@
   import Nav from "./components/nav/Nav.svelte";
 
   import Auth from "./components/auth/Auth.svelte";
+  import Data from "./components/data/Data.svelte";
 
   let jwtToken: string = "";
   let page: page = "url";
@@ -20,7 +21,6 @@
       backBtn = true;
     }
   };
-
 </script>
 
 <Nav urls={pageHandler} {backBtn} />
@@ -30,7 +30,7 @@
   {:else if jwtToken === ""}
     <Auth bind:jwtToken />
   {:else}
-    <p>metadata</p>
+    <Data {jwtToken} />
   {/if}
 </main>
 
