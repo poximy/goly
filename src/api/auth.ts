@@ -3,7 +3,7 @@ interface Token {
   detail?: string;
 }
 
-const token = async (username: string, password: string) => {
+export const token = async (username: string, password: string) => {
   const body = `username=${username}&password=${password}`;
   const apiUrl = window.location.origin + "token";
 
@@ -24,4 +24,26 @@ const token = async (username: string, password: string) => {
   }
 };
 
-export default token;
+export const register = async (username: string, password: string) => {
+  const apiUrl = window.location.origin + "/register";
+  const body = {
+    username,
+    password,
+  };
+
+  try {
+    const res = await fetch(apiUrl, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    });
+
+    const data: boolean = await res.json();
+    return data;
+  } catch (error) {
+    return null;
+  }
+};
