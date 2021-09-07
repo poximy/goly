@@ -1,5 +1,6 @@
 <script lang="ts">
   import UrlForm from "./UrlForm.svelte";
+  export let jwtToken: string = "";
 
   let miniUrl = "";
 
@@ -8,7 +9,7 @@
   };
 </script>
 
-<UrlForm miniUrl={(url) => (miniUrl = url)} />
+<UrlForm miniUrl={(url) => (miniUrl = url)} {jwtToken} />
 {#if miniUrl}
   <div>
     <a href={miniUrl}>{miniUrl}</a>

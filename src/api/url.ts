@@ -2,14 +2,25 @@ interface UrlID {
   _id: string;
 }
 
-export const minifyUrl = async (urlText: string) => {
+interface UrlHeader {
+  "content-type": string;
+  Authorization?: string;
+}
+
+export const minifyUrl = async (urlText: string, token: string = "") => {
   const bodyData = { url: urlText };
   const apiUrl = window.location.origin;
+
+  const headers: UrlHeader = { "content-type": "application/json" };
+
+  if (token !== "") {
+    headers["Authorization"] = `Bearer ${token}`;
+  }
 
   try {
     const res = await fetch(apiUrl, {
       method: "POST",
-      headers: { "content-type": "application/json" },
+      headers: { ...headers },
       body: JSON.stringify(bodyData),
     });
 

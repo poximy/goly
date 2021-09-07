@@ -26,7 +26,7 @@
 <Nav urls={pageHandler} {backBtn} />
 <main>
   {#if page === "url"}
-    <Url />
+    <Url {jwtToken} />
   {:else if jwtToken === ""}
     <Auth bind:jwtToken />
   {:else}

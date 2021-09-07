@@ -1,5 +1,6 @@
 <script lang="ts">
   export let miniUrl: (url: string) => void;
+  export let jwtToken: string;
 
   import { minifyUrl } from "@api/url";
 
@@ -11,7 +12,7 @@
       return;
     }
 
-    const newUrl = await minifyUrl(urlInputText);
+    const newUrl = await minifyUrl(urlInputText, jwtToken);
     if (newUrl !== null) {
       miniUrl(newUrl);
       urlInputText = "";
