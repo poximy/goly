@@ -1,5 +1,5 @@
 const data = async (token: string) => {
-  const apiUrl = window.location.origin + "/user/metadata";
+  const apiUrl = process["env"].API_URL + "/user/metadata";
 
   try {
     const res = await fetch(apiUrl, {

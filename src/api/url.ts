@@ -9,7 +9,7 @@ interface UrlHeader {
 
 export const minifyUrl = async (urlText: string, token: string = "") => {
   const bodyData = { url: urlText };
-  const apiUrl = window.location.origin;
+  const apiUrl = process["env"].API_URL + "/";
 
   const headers: UrlHeader = { "content-type": "application/json" };
 
@@ -32,7 +32,7 @@ export const minifyUrl = async (urlText: string, token: string = "") => {
 };
 
 export const deleteUrl = async (token: string, url_id: string) => {
-  const apiUrl = window.location.origin + url_id;
+  const apiUrl = process["env"].API_URL + "/" + url_id;
   try {
     const res = await fetch(apiUrl, {
       method: "DELETE",

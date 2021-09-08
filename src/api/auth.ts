@@ -5,7 +5,7 @@ interface Token {
 
 export const token = async (username: string, password: string) => {
   const body = `username=${username}&password=${password}`;
-  const apiUrl = window.location.origin + "token";
+  const apiUrl = process["env"].API_URL + "/token";
 
   try {
     const res = await fetch(apiUrl, {
@@ -25,7 +25,7 @@ export const token = async (username: string, password: string) => {
 };
 
 export const register = async (username: string, password: string) => {
-  const apiUrl = window.location.origin + "/register";
+  const apiUrl = process["env"].API_URL + "/register";
   const body = {
     username,
     password,
