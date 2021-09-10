@@ -48,7 +48,7 @@ export default {
   plugins: [
     replace({
       process: JSON.stringify({
-        env: { ...config().parsed },
+        env: { API_URL: process.env.API_URL },
       }),
     }),
     svelte({
