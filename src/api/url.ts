@@ -7,7 +7,7 @@ interface UrlHeader {
   Authorization?: string;
 }
 
-const apiUrl = process.env.API_URL;
+const apiUrl = env["API_URL"];
 
 export const minifyUrl = async (urlText: string, token: string = "") => {
   const bodyData = { url: urlText };

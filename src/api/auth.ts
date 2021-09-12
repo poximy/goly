@@ -3,9 +3,11 @@ interface Token {
   detail?: string;
 }
 
+const url = env["API_URL"];
+
 export const token = async (username: string, password: string) => {
   const body = `username=${username}&password=${password}`;
-  const apiUrl = process["env"].API_URL + "/token";
+  const apiUrl = url + "/token";
 
   try {
     const res = await fetch(apiUrl, {
@@ -25,7 +27,7 @@ export const token = async (username: string, password: string) => {
 };
 
 export const register = async (username: string, password: string) => {
-  const apiUrl = process["env"].API_URL + "/register";
+  const apiUrl = url + "/register";
   const body = {
     username,
     password,

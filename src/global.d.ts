@@ -7,7 +7,3 @@ interface Metadata {
   clicks: number;
   created: string;
 }
-
-declare global {
-  var API_URL: string;
-}

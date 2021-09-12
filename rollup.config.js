@@ -10,6 +10,8 @@ import css from "rollup-plugin-css-only";
 import { config } from "dotenv";
 import replace from "@rollup/plugin-replace";
 
+config();
+
 const production = !process.env.ROLLUP_WATCH;
 
 function serve() {
@@ -47,8 +49,8 @@ export default {
   },
   plugins: [
     replace({
-      process: JSON.stringify({
-        env: { API_URL: process.env.API_URL },
+      env: JSON.stringify({
+        API_URL: process.env.API_URL,
       }),
     }),
     svelte({
