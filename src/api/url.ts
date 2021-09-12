@@ -26,7 +26,7 @@ export const minifyUrl = async (urlText: string, token: string = "") => {
     });
 
     const data: UrlID = await res.json();
-    return apiUrl + data._id;
+    return apiUrl + "/" + data._id;
   } catch (error) {
     return null;
   }

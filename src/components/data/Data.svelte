@@ -33,7 +33,7 @@
         <div>
           <p>created: {url.created}</p>
           <p>
-            mini: {window.location.origin}/{url._id}
+            mini: {env["API_URL"]}/{url._id}
             <button
               on:click={() =>
                 navigator.clipboard.writeText(
