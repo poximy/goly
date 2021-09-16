@@ -2,6 +2,7 @@
 
 This project is built using svelte & typescript
 
+Want to see it live, go to: `https://url-svelte.netlify.app`
 ![Project view](/images/project_view.png)
 ## Quickstart
 
