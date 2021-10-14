@@ -19,6 +19,8 @@
   };
 
   $: metadata();
+
+  const ApiUrl = env["API_URL"]
 </script>
 
 <div>
@@ -33,7 +35,7 @@
         <div>
           <p>created: {url.created}</p>
           <p>
-            mini: {env["API_URL"]}/{url._id}
+            mini: {ApiUrl}/{url._id}
             <button
               on:click={() =>
                 navigator.clipboard.writeText(
