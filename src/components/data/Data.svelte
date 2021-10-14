@@ -7,6 +7,7 @@
   let urlData: Metadata[] = [];
 
   const metadata = async () => {
+    // Collects urls a user has created
     const urls = await data($token);
     if (urls !== null) {
       urlData = urls;
@@ -25,8 +26,8 @@
 
 <div>
   <ul>
-    <!--  TODO Add append & delete btn  -->
     {#each urlData as url}
+      <!--Places each url in its own card-->
       <li class="card">
         <div>
           <p class="click">{url.clicks}</p>

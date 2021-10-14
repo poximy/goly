@@ -13,6 +13,7 @@
 
   const fromHandler = async () => {
     if (!login && (password === confirmPassword)) {
+      // register user
        const res = await register(user, password)
        if (res === null || res === false){
          loginError = true
@@ -22,6 +23,7 @@
 
     const res = await auth(user, password);
     if (res !== null && res.access_token) {
+      // authenticate user
       let jwtToken = res.access_token;
       token.update(value => value = jwtToken)
 

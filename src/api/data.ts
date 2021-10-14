@@ -1,4 +1,5 @@
 const data = async (token: string) => {
+  // Obtains url metadata for a given user
   const apiUrl = env["API_URL"] + "/user/metadata";
 
   try {

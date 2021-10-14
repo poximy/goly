@@ -11,6 +11,7 @@
   let backBtn = false;
 
   const pageHandler = () => {
+    // Controls content on screen
     if (backBtn) {
       page = "url";
       backBtn = false;
