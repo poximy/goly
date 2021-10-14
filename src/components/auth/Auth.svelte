@@ -1,6 +1,6 @@
 <script lang="ts">
-  export let jwtToken: string
-  import { token, register } from "@api/auth";
+  import { token } from "../../stores"
+  import { auth, register } from "@api/auth";
 
   // authentication variables
   let user: string = "";
@@ -20,9 +20,10 @@
        }
     }
 
-    const res = await token(user, password);
+    const res = await auth(user, password);
     if (res !== null && res.access_token) {
-      jwtToken = res.access_token;
+      let jwtToken = res.access_token;
+      token.update(value => value = jwtToken)
 
       user = "";
       password = "";

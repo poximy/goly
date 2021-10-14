@@ -5,7 +5,7 @@ interface Token {
 
 const url = env["API_URL"];
 
-export const token = async (username: string, password: string) => {
+export const auth = async (username: string, password: string) => {
   const body = `username=${username}&password=${password}`;
   const apiUrl = url + "/token";
 

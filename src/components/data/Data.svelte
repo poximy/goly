@@ -1,5 +1,5 @@
 <script lang="ts">
-  export let jwtToken: string;
+  import { token } from "../../stores";
 
   import data from "@api/data";
   import { deleteUrl } from "@api/url";
@@ -7,14 +7,14 @@
   let urlData: Metadata[] = [];
 
   const metadata = async () => {
-    const urls = await data(jwtToken);
+    const urls = await data($token);
     if (urls !== null) {
       urlData = urls;
     }
   };
 
   const delUrl = async (id: string) => {
-    await deleteUrl(jwtToken, id);
+    await deleteUrl($token, id);
     metadata();
   };
 

@@ -5,7 +5,8 @@
   import Auth from "./components/auth/Auth.svelte";
   import Data from "./components/data/Data.svelte";
 
-  let jwtToken: string = "";
+  import { token } from "./stores";
+
   let page: page = "url";
   let backBtn = false;
 
@@ -13,7 +14,7 @@
     if (backBtn) {
       page = "url";
       backBtn = false;
-    } else if (jwtToken === "") {
+    } else if ($token === "") {
       page = "auth";
       backBtn = true;
     } else {
@@ -26,11 +27,11 @@
 <Nav urls={pageHandler} {backBtn} />
 <main>
   {#if page === "url"}
-    <Url {jwtToken} />
-  {:else if jwtToken === ""}
-    <Auth bind:jwtToken />
+    <Url />
+  {:else if $token === ""}
+    <Auth />
   {:else}
-    <Data {jwtToken} />
+    <Data />
   {/if}
 </main>
 
