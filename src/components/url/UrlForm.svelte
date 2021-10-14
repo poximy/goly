@@ -1,6 +1,6 @@
 <script lang="ts">
-  export let miniUrl: (url: string) => void;
-  import { token } from "../../stores"
+  export let miniUrl: string = "";
+  import { token } from "../../stores";
 
   import { minifyUrl } from "@api/url";
 
@@ -14,7 +14,7 @@
 
     const newUrl = await minifyUrl(urlInputText, $token);
     if (newUrl !== null) {
-      miniUrl(newUrl);
+      miniUrl = newUrl;
       urlInputText = "";
     }
   };

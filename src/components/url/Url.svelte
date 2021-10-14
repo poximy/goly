@@ -8,7 +8,7 @@
   };
 </script>
 
-<UrlForm miniUrl={(url) => (miniUrl = url)} />
+<UrlForm bind:miniUrl />
 {#if miniUrl}
   <div>
     <a href={miniUrl}>{miniUrl}</a>
