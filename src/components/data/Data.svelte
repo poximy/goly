@@ -21,7 +21,7 @@
 
   $: metadata();
 
-  const ApiUrl = env["API_URL"]
+  const ApiUrl = env["API_URL"];
 </script>
 
 <div>

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { token } from "../../stores"
+  import { token } from "../../stores";
   import { auth, register } from "@api/auth";
 
   // authentication variables
@@ -12,20 +12,20 @@
   let confirmPassword = "";
 
   const fromHandler = async () => {
-    if (!login && (password === confirmPassword)) {
+    if (!login && password === confirmPassword) {
       // register user
-       const res = await register(user, password)
-       if (res === null || res === false){
-         loginError = true
-         return
-       }
+      const res = await register(user, password);
+      if (res === null || res === false) {
+        loginError = true;
+        return;
+      }
     }
 
     const res = await auth(user, password);
     if (res !== null && res.access_token) {
       // authenticate user
       let jwtToken = res.access_token;
-      token.update(value => value = jwtToken)
+      token.update((value) => (value = jwtToken));
 
       user = "";
       password = "";
@@ -35,12 +35,11 @@
       password = "";
     }
   };
-
 </script>
 
 <div class="action">
-  <button class="register" on:click={() => login = false}>Register</button>
-  <button class="login" on:click={() => login = true}>Login</button>
+  <button class="register" on:click={() => (login = false)}>Register</button>
+  <button class="login" on:click={() => (login = true)}>Login</button>
 </div>
 
 <div class="auth">
@@ -64,10 +63,10 @@
     {#if !login}
       <div class="field">
         <input
-                type="password"
-                class="input"
-                placeholder="Confirm Password"
-                bind:value={confirmPassword}
+          type="password"
+          class="input"
+          placeholder="Confirm Password"
+          bind:value={confirmPassword}
         />
       </div>
     {/if}
