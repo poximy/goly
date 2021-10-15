@@ -24,8 +24,7 @@
     const res = await auth(user, password);
     if (res !== null && res.access_token) {
       // authenticate user
-      let jwtToken = res.access_token;
-      token.update((value) => (value = jwtToken));
+      token.set(res.access_token);
 
       user = "";
       password = "";
