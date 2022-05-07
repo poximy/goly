@@ -55,7 +55,7 @@ const Home: NextPage = () => {
           onChange={e => setUrl(e.target.value)}
           placeholder="Insert URL..."
           className="h-12 w-72 rounded-l px-2 font-mono text-xl focus:outline-none
-          sm:h-14 sm:w-96 md:w-[32rem] lg:w-[48rem]"
+					sm:h-14 sm:w-96 sm:px-4 md:w-[32rem] lg:w-[48rem]"
         />
         <button type="submit" className="rounded-r bg-blue-600 p-2">
           <svg
