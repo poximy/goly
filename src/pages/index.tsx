@@ -57,7 +57,10 @@ const Home: NextPage = () => {
           className="h-12 w-72 rounded-l px-2 font-mono text-xl focus:outline-none
 					sm:h-14 sm:w-96 sm:px-4 md:w-[32rem] lg:w-[48rem]"
         />
-        <button type="submit" className="rounded-r bg-blue-600 p-2">
+        <button
+          type="submit"
+          className="rounded-r bg-blue-600 p-2 hover:bg-blue-700"
+        >
           <svg
             className="h-8 w-8 stroke-white sm:h-10 sm:w-10"
             fill="none"
