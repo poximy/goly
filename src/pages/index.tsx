@@ -1,7 +1,9 @@
 import axios from 'axios';
+
+import Nav from '@components/Nav';
+
 import Head from 'next/head';
 import type { NextPage } from 'next';
-
 import { useState, FormEvent } from 'react';
 
 const createUrl = async function (url: string): Promise<void> {
@@ -43,6 +45,8 @@ const Home: NextPage = () => {
       <Head>
         <title>Minify URL</title>
       </Head>
+
+      <Nav />
 
       <form
         onSubmit={handleSubmit}

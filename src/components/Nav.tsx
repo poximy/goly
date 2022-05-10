@@ -1,7 +1,26 @@
 import Link from 'next/link';
 import type { FC } from 'react';
+import { useRouter } from 'next/router';
 
 const Nav: FC = () => {
+  const router = useRouter();
+  const path = router.pathname;
+
+  if (path === '/login' || path === '/signup') {
+    return (
+      <nav
+        className="absolute top-0 z-10 my-8 flex h-[48px] w-full items-center
+				justify-center text-white"
+      >
+        <Link href="/">
+          <a className="font-sans text-4xl font-bold leading-none">
+            <h1>Minify URL</h1>
+          </a>
+        </Link>
+      </nav>
+    );
+  }
+
   return (
     <nav
       className="absolute top-0 z-10 my-8 grid w-full grid-cols-2 gap-y-4
