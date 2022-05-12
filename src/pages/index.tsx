@@ -50,35 +50,35 @@ const Home: NextPage = () => {
 
       <form
         onSubmit={handleSubmit}
-        className="relative flex h-screen items-center justify-center"
+        className='relative flex h-screen items-center justify-center'
       >
         <input
-          id="url"
-          type="text"
+          id='url'
+          type='text'
           value={url}
           onChange={e => setUrl(e.target.value)}
-          placeholder="Insert URL..."
-          className="h-12 w-72 rounded-l px-2 font-mono text-xl focus:outline-none
-					sm:h-14 sm:w-96 sm:px-4 md:w-[32rem] lg:w-[48rem]"
+          placeholder='Insert URL...'
+          className='h-12 w-72 rounded-l px-2 font-mono text-xl focus:outline-none
+					sm:h-14 sm:w-96 sm:px-4 md:w-[32rem] lg:w-[48rem]'
         />
         <button
-          type="submit"
-          className="rounded-r bg-blue-600 p-2 hover:bg-blue-700"
+          type='submit'
+          className='rounded-r bg-blue-600 p-2 hover:bg-blue-700'
         >
           <svg
-            className="h-8 w-8 stroke-white sm:h-10 sm:w-10"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
+            className='h-8 w-8 stroke-white sm:h-10 sm:w-10'
+            fill='none'
+            stroke='currentColor'
+            viewBox='0 0 24 24'
+            xmlns='http://www.w3.org/2000/svg'
           >
             <path
               strokeWidth={2}
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656
+              strokeLinecap='round'
+              strokeLinejoin='round'
+              d='M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656
                 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4
-                0 00-5.656-5.656l-1.1 1.1"
+                0 00-5.656-5.656l-1.1 1.1'
             />
           </svg>
         </button>
