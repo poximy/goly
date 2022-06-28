@@ -67,7 +67,7 @@
       </a>
       <button
         type="button"
-        on:click={() => console.log('copy')}
+        on:click={() => navigator.clipboard.writeText(golyUrl)}
         class="group box-border aspect-square h-12 rounded border p-2 hover:bg-light sm:h-14"
       >
         <svg
