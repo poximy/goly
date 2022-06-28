@@ -1,30 +1,21 @@
 <script lang="ts">
   import { create } from '@lib/goly';
-
-  import { fade, fly } from 'svelte/transition';
+  import { error } from '@lib/stores';
 
   let url = '';
-  let errorMessage = '';
-
   let golyUrl = '';
 
   async function handleSubmit() {
     if (url === '') {
-      errorMessage = 'url cannot be empty';
+      error.set('url cannot be empty');
       return;
     }
     try {
       const apiUrl = import.meta.env.VITE_API_URL;
       golyUrl = await create(apiUrl, url);
-    } catch (error) {
-      errorMessage = error;
+    } catch (err) {
+      error.set(err);
     }
-  }
-
-  $: if (errorMessage !== '') {
-    setTimeout(() => {
-      errorMessage = '';
-    }, 3000);
   }
 </script>
 
@@ -32,23 +23,6 @@
   class="relative flex h-screen w-full flex-col flex-wrap items-center
   justify-center gap-4 text-xl"
 >
-  {#if errorMessage !== ''}
-    <div
-      id="error"
-      class="fixed top-0 z-10 flex h-12 w-full items-center justify-center
-      bg-danger p-2 sm:h-14 sm:max-w-[75%] sm:rounded-b md:max-w-[50%]"
-      in:fly={{
-        y: -document.getElementById('error').offsetHeight,
-        duration: 500,
-      }}
-      out:fade
-      on:click={() => (errorMessage = '')}
-    >
-      <p class="truncate font-sans text-xl font-bold capitalize text-light">
-        {errorMessage}!
-      </p>
-    </div>
-  {/if}
   {#if golyUrl !== ''}
     <div
       class="absolute top-1/3 flex -translate-y-1/3 flex-col items-center
