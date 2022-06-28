@@ -7,8 +7,9 @@
     "resolveJsonModule": true,
     "baseUrl": ".",
     "paths": {
-      "@components/*": ["src/components/*"],
-      "@lib/*": ["src/lib/*"]
+      "@lib/*": ["src/lib/*"],
+      "@pages/*": ["src/pages/*"],
+      "@components/*": ["src/components/*"]
     },
     "allowJs": true,
     "checkJs": true,
