@@ -13,9 +13,6 @@ module.exports = {
         ternary: '#ffcc33',
         danger: '#ff0022',
       },
-      backgroundImage: {
-        texture: "url('/texture.svg')",
-      },
     },
     fontFamily: {
       mono: ['IBM Plex Mono', 'monospace'],
