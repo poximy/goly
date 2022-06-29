@@ -4,6 +4,7 @@
   import Nav from '@components/Nav.svelte';
   import Error from '@components/Error.svelte';
   import Index from '@pages/Index.svelte';
+  import Login from '@pages/Login.svelte';
 </script>
 
 <Nav />
@@ -14,7 +15,7 @@
 </Route>
 
 <Route path="/login">
-  <p>login</p>
+  <Login />
 </Route>
 
 <Route path="/signup">
