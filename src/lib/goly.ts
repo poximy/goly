@@ -3,7 +3,7 @@ import axios from 'axios';
 async function create(apiUrl: string, url: string): Promise<string> {
   const res = await postGoly(apiUrl, url);
   const goly = validateGoly(res.data);
-  return apiUrl + '/' + goly.id;
+  return window.location + goly.id;
 }
 
 async function postGoly(apiUrl: string, url: string) {

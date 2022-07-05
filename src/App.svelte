@@ -4,20 +4,16 @@
   import Nav from '@components/Nav.svelte';
   import Error from '@components/Error.svelte';
   import Index from '@pages/Index.svelte';
-  import Login from '@pages/Login.svelte';
+  import Redirect from '@pages/Redirect.svelte';
 </script>
 
-<Nav />
 <Error />
 
 <Route path="/">
+  <Nav />
   <Index />
 </Route>
 
-<Route path="/login">
-  <Login />
-</Route>
-
-<Route path="/signup">
-  <p>signup</p>
+<Route path="/:id">
+  <Redirect />
 </Route>
