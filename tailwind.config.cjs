@@ -6,11 +6,7 @@ module.exports = {
       colors: {
         dark: '#333333',
         light: '#fdfffc',
-        darker: '#1f1f1f',
-        lighter: '#fbfbfb',
         primary: '#266dd3',
-        secondary: '#379634',
-        ternary: '#ffcc33',
         danger: '#ff0022',
       },
     },
