@@ -26,7 +26,7 @@
   {#if golyUrl !== ''}
     <div
       class="absolute top-1/3 flex -translate-y-1/3 flex-col items-center
-      justify-center gap-4 rounded font-mono text-xl sm:flex-row"
+      justify-center gap-4 font-mono text-xl sm:flex-row"
     >
       <a
         href={golyUrl}
@@ -39,7 +39,7 @@
       <button
         type="button"
         on:click={() => navigator.clipboard.writeText(golyUrl)}
-        class="group box-border aspect-square h-12 rounded border p-2 hover:bg-light sm:h-14"
+        class="group box-border aspect-square h-12 border p-2 hover:bg-light sm:h-14"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -65,13 +65,13 @@
       type="text"
       bind:value={url}
       placeholder="Insert URL..."
-      class="h-12 w-72 rounded-l border-none bg-light px-2 font-mono
-      focus:outline-none sm:h-14 sm:w-96 sm:px-4 md:w-[32rem] lg:w-[48rem]"
+      class="h-12 w-72 border-none bg-light px-2 font-mono focus:outline-none
+      sm:h-14 sm:w-96 sm:px-4 md:w-[32rem] lg:w-[48rem]"
     />
     <button
       type="submit"
-      class="box-border aspect-square h-12 rounded-r
-      border-none bg-primary p-2 hover:bg-[#2363be] sm:h-14"
+      class="box-border aspect-square h-12 border-none bg-primary p-2
+      hover:bg-[#2363be] sm:h-14"
     >
       <svg
         class="h-8 w-8 stroke-white sm:h-10 sm:w-10"
